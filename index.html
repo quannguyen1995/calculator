@@ -7,49 +7,31 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-    <form name="caculator">
-        <table>
-          <tr>
-            <td colspan="4">
-              <input class="display" type="text" name="display" disabled>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="button" class="nut"  value=" C " onclick="caculator.display.value = ''"></td>
-            <td><input type="button" class="nut" value="1/x" onclick="caculator.display.value=eval(1/caculator.display.value)"/></td>
-            <td><input type="button" class="nut" value=" % " onclick="caculator.display.value=eval(caculator.display.value/100)"/></td>
-            <td><input type="button" class="operator"  value=" + " onclick="caculator.display.value += '+'">
-            </td>
-          </tr>
-          <tr>
-            <td><input type="button" value=" 1 " onclick="caculator.display.value +=1"></td>
-            <td><input type="button" value=" 2 " onclick="caculator.display.value +=2"></td>
-            <td><input type="button" value=" 3 " onclick="caculator.display.value +=3"></td>
-            <td><input class="operator" type="button"  value=" - " onclick="caculator.display.value += '-'"></td>
-          </tr>
-          <tr>
-            <td><input type="button" value=" 4 " onclick="caculator.display.value +=4"></td>
-            <td><input type="button" value=" 5 " onclick="caculator.display.value +=5"></td>
-            <td><input type="button" value=" 6 " onclick="caculator.display.value +=6"></td>
-            <td><input class="operator" type="button"  value=" * " onclick="caculator.display.value += '*'"></td>
-          </tr>
-          <tr>
-            <td><input type="button" value=" 7 " onclick="caculator.display.value +=7"></td>
-            <td><input type="button" value=" 8 " onclick="caculator.display.value +=8"></td>
-            <td><input type="button" value=" 9 " onclick="caculator.display.value +=9"></td>
-            <td><input class="operator" type="button" value=" / " onclick="caculator.display.value += '/'"></td>
-          </tr>
-          <tr>
-            
-            <td colspan="2"><input type="button" value="0" onclick="caculator.display.value += '0'"></td>
-            <td><input type="button"  value="." onclick="caculator.display.value += '.'">
-            <td><input type="button" class="operator"  value=" = " onclick="caculator.display.value = eval(caculator.display.value)"></td>
-            
-            </td>
-          </tr>
-          
-        </table>
-    </form>
+    <div class="calculator">
+		<input type="text" class="box-calculation" value="">
+		<input type="text" class="box-result" value="">
+		<div class="box-button">
+			<button class="refresh">CE</button>
+			<button class="del">Del</button>
+			<button class="plus operation">+</button>
+			<button class="minus operation">-</button>
+			<button class="times operation">*</button>
+			<button class="divide operation">/</button>
+			<button class="number">9</button>
+			<button class="number">8</button>
+			<button class="number">7</button>
+			<button class="number">6</button>
+			<button class="number">5</button>
+			<button class="number">4</button>
+			<button class="number">3</button>
+			<button class="number">2</button>
+			<button class="number">1</button>
+			<button class="number">0</button>
+			<button class="dot">.</button>
+			<button class="equal">=</button>
+		</div>
+	</div>
+	  <script src="http://code.jquery.com/jquery.js"></script>
     <script src="./js/calculator.js"></script>
 </body>
 </html>
