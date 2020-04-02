@@ -1,3 +1,4 @@
+var t = 0;
 $ (document).ready (function () {
   $ ('.box-calculation').attr ('disabled', 'true'); // Vô hiệu hoá ô phép tính
   $ ('.box-result').attr ('disabled', 'true'); // Vô hiệu hoá ô kết quả
@@ -8,6 +9,7 @@ $ (document).ready (function () {
 
 // Thực hiện các hành động bên trong khi click vào các nút số
 $ ('.box-button button.number').on ('click', function () {
+  t = 0;
   $char = $ (this).html (); // Lấy số vừa click
   $value_calculation = $ ('.box-calculation').val (); // Lấy chuỗi giá trị trong ô phép tính
   $ ('.box-calculation').val ($value_calculation + $char); // Thêm số vừa click vào sau chuỗi giá trị trong ô phép tính
@@ -38,16 +40,27 @@ $ ('.box-button button.del').on ('click', function () {
 
 // Thực hiện các hành động bên trong khi click vào các nút phép toán
 $ ('.box-button button.operation').on ('click', function () {
+  t++;
   $char = $ (this).html (); // Lấy dấu phép toán vừa click
   $value_calculation = $ ('.box-calculation').val (); // Lấy chuỗi giá trị trong ô phép tính
+  if(t >2){
+    $ ('.box-button button.minus').attr ('disabled', 'true'); // Vô hiệu hoá nút nhân
+    $ ('.box-button button.plus').attr ('disabled', 'true'); // Vô hiệu hoá nút chia
+  } else {
   $ ('.box-calculation').val ($value_calculation + $char); // Thêm dấu phép toán vừa click vào sau chuỗi giá trị trong ô phép tính
   $ ('.box-button button.times').attr ('disabled', 'true'); // Vô hiệu hoá nút nhân
   $ ('.box-button button.divide').attr ('disabled', 'true'); // Vô hiệu hoá nút chia
   $ ('.box-button button.dot').removeAttr ('disabled'); // Gỡ bỏ vô hiệu hoá nút dấu chấm
+  }
 });
 
 // Thực hiện các hành động bên trong khi click vào các nút bằng
 $ ('.box-button button.equal').on ('click', function () {
   $result = $ ('.box-calculation').val (); // Lấy chuỗi giá trị trong ô phép tính
-  $ ('.box-result').val (eval ($result)); // Hiển thị kết quả trong ô kết quả
+  if(eval ($result) == Infinity){
+    $ ('.box-result').val ("Error");
+  }
+  else {
+    $ ('.box-result').val (eval ($result));// Hiển thị kết quả trong ô kết quả
+  }
 });
